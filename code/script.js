@@ -1,4 +1,3 @@
-const imag = document.getElementById('imag');
 
 const img =[ 
   "https://new-science.ru/wp-content/uploads/2020/03/4848-4.jpg",
