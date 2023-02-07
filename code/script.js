@@ -1,46 +1,37 @@
-const createETag = (tagName, className, text) => {
-  const tag = document.createElement (tagName);
-  tag.classList.add(className);
-  tag.textContent = text;
+const imag = document.getElementById('imag');
 
-  return tag;
+const img =[ 
+  "https://new-science.ru/wp-content/uploads/2020/03/4848-4.jpg",
+  "https://universetoday.ru/wp-content/uploads/2018/10/Mercury.jpg",
+  "https://upload.wikimedia.org/wikipedia/commons/c/cb/The_Blue_Marble_%28remastered%29.jpg",
+  "https://nnst1.gismeteo.ru/images/2020/07/shutterstock_1450308851-640x360.jpg"
+];
+
+for (let i = 0; i < img.length; ++i) {
+  let div = document.createElement("div");  
+  
+  let image = document.createElement("img");
+  image.src = img[i];
+  
+  div.classList.add('item');
+  
+  div.appendChild(image);
+  
+  document.querySelector(".slider").appendChild(div);
 }
 
-function newPage () {
+const a1 = document.createElement("a");
+document.querySelector(".slider").appendChild(a1);
+a1.classList.add("prev");
+a1.textContent = "<";
 
-  const div1 = createETag('div', "item", "" );
-  div2 = createETag('div', "item", "");
-  div3 = createETag('div', "item", "");
-  div4 = createETag('div', "item", "");
 
-  img1 = createETag('img', "slide1", "");
-  img2 = createETag('img', "slide2", "");
-  img3 = createETag('img', "slide3", "");
-  img4 = createETag('img', "slide4", "");
-  
-  a1 = createETag("a","prev", "<");
-  a2 = createETag("a", "next", ">");
-  
-  document.querySelector(".slider").appendChild(div1);
-  document.querySelector(".slider").appendChild(div2);
-  document.querySelector(".slider").appendChild(div3);
-  document.querySelector(".slider").appendChild(div4);
-  document.querySelector(".slider").appendChild(a1);
-  document.querySelector(".slider").appendChild(a2);
+const a2 = document.createElement("a");
+document.querySelector(".slider").appendChild(a2);
+a2.classList.add("next");
+a2.textContent = ">";
 
-  div1.appendChild(img1);
-  div2.appendChild(img2);
-  div3.appendChild(img3);
-  div4.appendChild(img4);
-
-}
-newPage ();
-
-document.querySelector(".slide1").src="https://new-science.ru/wp-content/uploads/2020/03/4848-4.jpg";
-document.querySelector(".slide2").src="https://universetoday.ru/wp-content/uploads/2018/10/Mercury.jpg";
-document.querySelector(".slide3").src="https://cdn.iz.ru/sites/default/files/styles/900x506/public/news-2018-12/20180913_zaa_p138_057.jpg";
-document.querySelector(".slide4").src="https://nnst1.gismeteo.ru/images/2020/07/shutterstock_1450308851-640x360.jpg";
-
+// ---------------------------------------------------------------------
 
 let slideIndex = 1;
 let timer = null;
